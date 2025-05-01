@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8' />
+    <title>GeoZoom</title>
+    <link rel='stylesheet' href='style.css'>
+    <link rel='icon' href='resources/earth.png'>
+</head>
+<body>
+    <h1 id='title'>GeoZoom</h1>
+
+    <button class='button' id='zoom_in_button' onclick='zoom_in()'>Zoom in</button>
+    <button class='button' id='zoom_out_button' onclick='zoom_out()'>Zoom out</button>
+    <h2 class='above' id='zoom_level'>Zoom level: 10</h2>
+    <h2 class='above' id='max_possible_points'>Max possible points: 1,000</h2>
+    <button class='button' id='submit_guess_button'>Submit guess</button>
+    <button class='button' id='next_round_button'>Next round</button>
+
+    <div></div>
+
+    <img class='hideable_map' id='question_map_1' src='question_maps_png/question_map_1_1.png' alt='earth.png'>
+    <img class='hideable_map' id='question_map_2' src='question_maps_png/question_map_2_1.png' alt='earth.png'>
+    <img class='hideable_map' id='question_map_3' src='question_maps_png/question_map_3_1.png' alt='earth.png'>
+    <img class='hideable_map' id='question_map_4' src='question_maps_png/question_map_4_1.png' alt='earth.png'>
+    <img class='hideable_map' id='question_map_5' src='question_maps_png/question_map_5_1.png' alt='earth.png'>
+    <img class='hideable_map' id='question_map_6' src='question_maps_png/question_map_6_1.png' alt='earth.png'>
+    <img class='hideable_map' id='question_map_7' src='question_maps_png/question_map_7_1.png' alt='earth.png'>
+    <img class='hideable_map' id='question_map_8' src='question_maps_png/question_map_8_1.png' alt='earth.png'>
+    <img class='hideable_map' id='question_map_9' src='question_maps_png/question_map_9_1.png' alt='earth.png'>
+
+    <img class='map' id='question_map_10' src='question_maps_png/question_map_10_1.png' alt='earth.png'>
+
+    <div id='click_detector'>
+        <img class='map' id='answer_map' src='resources/answer_map.png' alt='earth.png'>
+
+        <img class='marker' id='guess_marker' src='resources/guess_marker.png' alt='earth.png'>
+        <img class='marker' id='answer_marker' src='resources/answer_marker.png' alt='earth.png'>
+    </div>
+
+    <h2 class='right' id='round'>Round 1/5</h2>
+    <h2 class='right' id='average_score'>Average score</h2>
+    <p class='description'>Welcome to GeoZoom!
+        The goal of this game is to correctly identify where the randomized given location is on a world map.
+        Look at the map on the left and guess on the map on the right.
+        Use as few zoom outs as possible and guess as accurately as you can for the most amount of points.
+        Good luck!</p>
+    <h2 id='answer_pop_up'>You were  miles or  kilometers off:  points</h2>
+
+    <div id='game_end_pop_up_overlay'>
+        <div id='game_end_pop_up'>
+            <h2 id='game_end_pop_up_text'>You're score today was . Thanks for playing! Follow me on github: <a href="https://github.com/winstonProgramming">https://github.com/winstonProgramming</a></h2>
+        </div>
+    </div>
+
+    <script src='script.js'></script>
+</body>
+</html>
