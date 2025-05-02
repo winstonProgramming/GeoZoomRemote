@@ -15,8 +15,8 @@ const game_end_pop_up_text = document.getElementById('game_end_pop_up_text');
 const game_end_pop_up_overlay = document.getElementById('game_end_pop_up_overlay');
 
 // declaring up inter-round variables
-let long_answers = [-143.27297712392522, 34.478393078752276, -77.48709520681835, 48.25285488653975, 34.2867066451781];
-let lat_answers = [67.66330954802936, -23.30219847227434, -11.008508559105742, 33.22127745170418, 63.285992688525965];
+let long_answers = [29.21755354615064, -33.41144344906513, 170.6110917895998, -117.50786183557045, 27.90418762303051];
+let lat_answers = [41.23349696753728, 69.93026374525647, 61.748861924950845, 52.463951635675215, 48.91711636089151];
 let points_record = [];
 let average_score_variable;
 
@@ -219,7 +219,7 @@ next_round_button.addEventListener('click', function()
     else
     {
         // updating and displaying game end pop up
-        game_end_pop_up_text.innerHTML = 'Your score today was ' + average_score_variable + '. Thanks for playing! Follow me on <a href="https://github.com/winstonProgramming" target="_blank">GitHub</a>.';
+        game_end_pop_up_text.innerHTML = 'Your score today was ' + average_score_variable + '. Play again tomorrow! Follow me on <a href="https://github.com/winstonProgramming" target="_blank">GitHub</a>.';
         game_end_pop_up_overlay.style.display = 'flex';
     }
 });
