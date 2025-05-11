@@ -11,7 +11,7 @@
 <p>Alternatively, you can run GeoZoom locally at https://github.com/winstonProgramming/GeoZoomLocal</p>
 
 <div>
-  <img src="images/block-off-1.png" width=300px>
-  <img src="images/block-off-2.png" width=300px>
-  <img src="images/block-off-3.png" width=300px>
+  <img src="GeoZoom Images/image 1.png" width=800px>
+  <img src="GeoZoom Images/image 2.png" width=800px>
+  <img src="GeoZoom Images/image 3.png" width=800px>
 </div>
