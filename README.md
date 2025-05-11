@@ -8,6 +8,8 @@
 
 <p>Play at https://winstonprogramming.github.io/GeoZoomRemote/</p>
 
+<p>Alternatively, you can run GeoZoom locally at https://github.com/winstonProgramming/GeoZoomLocal</p>
+
 <div>
   <img src="images/block-off-1.png" width=300px>
   <img src="images/block-off-2.png" width=300px>
