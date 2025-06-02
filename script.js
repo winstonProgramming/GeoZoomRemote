@@ -15,8 +15,8 @@ const game_end_pop_up_text = document.getElementById('game_end_pop_up_text');
 const game_end_pop_up_overlay = document.getElementById('game_end_pop_up_overlay');
 
 // declaring up inter-round variables
-let long_answers = [11.991575531900025, -106.16391308650039, -98.5206491689166, 91.27137316822683, 28.123725292586215];
-let lat_answers = [20.077964458975387, 54.37732126973185, 60.112852291971095, 41.36192969983959, -16.679243395697306];
+let long_answers = [-46.18399091395088, -83.98465828243476, -1.8448359302091717, 109.2835461389675, 58.14107256482882];
+let lat_answers = [-23.99402015472745, 15.24077712103626, 16.087281206973188, 39.492920603297364, 57.81592563680921];
 let points_record = [];
 let average_score_variable;
 
