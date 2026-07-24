@@ -15,8 +15,8 @@ const game_end_pop_up_text = document.getElementById('game_end_pop_up_text');
 const game_end_pop_up_overlay = document.getElementById('game_end_pop_up_overlay');
 
 // declaring up inter-round variables
-let long_answers = [25.916203420112822, -58.496255406419294, 120.04331131025248, -124.66650579275873, -83.32372940711713];
-let lat_answers = [-32.385214991416504, 0.9431430331779751, -32.5897952095288, 60.1426081432687, 40.310059135847354];
+let long_answers = [];
+let lat_answers = [];
 let points_record = [];
 let average_score_variable;
 
@@ -41,6 +41,25 @@ let zoom = 10;
 let max_possible_points = 1000;
 let long_guess = null;
 let lat_guess = null;
+
+function great_circle_degrees(lat_1, long_1, lat_2, long_2)
+{
+    const to_radians = Math.PI / 180;
+    const phi_1 = lat_1 * to_radians;
+    const phi_2 = lat_2 * to_radians;
+    const delta_phi = (lat_2 - lat_1) * to_radians;
+    const delta_lambda = (long_2 - long_1) * to_radians;
+
+    const a = Math.sin(delta_phi / 2) ** 2 +
+              Math.cos(phi_1) * Math.cos(phi_2) * Math.sin(delta_lambda / 2) ** 2;
+
+    return 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)) / to_radians;
+}
+
+function logistic(x, L, k, x_zero)
+{
+    return L / (1 + Math.exp(-k * (x - x_zero)));
+}
 
 function zoom_in()
 {
@@ -139,7 +158,7 @@ submit_guess_button.addEventListener('click', function()
     answer_marker.style.top = long_answer_y - answer_marker.height + 'px';
 
     // calculating points
-    const distance_off = ((Math.abs(long_answer - long_guess)) ** 2 + (Math.abs(lat_answer - lat_guess)) ** 2) ** 0.5;
+    const distance_off = great_circle_degrees(lat_answer, long_answer, lat_guess, long_guess);
     const distance_forgiveness = 3;
     const point_scaling_factor = -0.1;
     let distance_off_rounded = distance_off - distance_forgiveness;
@@ -147,11 +166,6 @@ submit_guess_button.addEventListener('click', function()
         distance_off_rounded = 0;
     const points = Math.round(logistic(distance_off_rounded, 2, point_scaling_factor, 0) * max_possible_points);
     points_record.push(points);
-
-    function logistic(x, L, k, x_zero)
-    {
-        return L / (1 + Math.exp(-k * (x - x_zero)));
-    }
 
     // updating and displaying answer pop up
     const miles_off = Math.round(distance_off * 69.17);
@@ -219,7 +233,7 @@ next_round_button.addEventListener('click', function()
     else
     {
         // updating and displaying game end pop up
-        game_end_pop_up_text.innerHTML = 'Your score today was ' + average_score_variable + '. Play again tomorrow! Follow me on <a href="https://github.com/winstonProgramming" target="_blank">GitHub</a>.';
+        game_end_pop_up_text.innerHTML = 'Your score today was ' + average_score_variable + '. Thanks for playing! Follow me on <a href="https://github.com/winstonProgramming" target="_blank">GitHub</a>.';
         game_end_pop_up_overlay.style.display = 'flex';
     }
 });
